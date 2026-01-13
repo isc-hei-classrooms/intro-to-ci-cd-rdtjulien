@@ -5,7 +5,7 @@ INCLUDE_DIR := ./include
 SOURCE_DIR := ./src
 TEST_DIR := ./test
 
-SRC := $(shell find $(SOURCE_DIR) -name *.cpp)
+SRC := $(shell find $(SOURCE_DIR) -name *.cp
 OBJ := $(SRC:%=build/%.o)
 DEP := $(OBJ:.o=.d)
 
