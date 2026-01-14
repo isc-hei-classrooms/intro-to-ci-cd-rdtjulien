@@ -16,17 +16,17 @@ jobs:
         run: make
 
       - name: Upload binary
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-release-artifact@v1
         env:
           GITHUB_TOKEN: ${{ secrets.WARWICK_TOKEN_LEAGUE_OF_LEGEND }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
           asset_name: dummydb-binary
-          asset_path: build/main
+          asset_path: ./build/main
           asset_content_type: application/octet-stream
 
       - name: Upload LICENSE
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-release-artifact@v1
         env:
           GITHUB_TOKEN: ${{ secrets.WARWICK_TOKEN_LEAGUE_OF_LEGEND }}
         with:
