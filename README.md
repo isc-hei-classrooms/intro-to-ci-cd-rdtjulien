@@ -65,4 +65,55 @@ make test
 
 ## CI/CD
 
-TO BE COMPLETED 
+
+## CI
+
+Create a CI workflow
+
+```
+.github/workflows/CI.yml
+```
+
+Test CI workflow
+
+```
+git commit -m ""
+git push
+```
+
+Check the actions tab to see if the push or the pull request is valid
+
+## CD
+
+Create a CD workflow
+
+```
+.github/workflow/CD.yml
+```
+
+- Checkout the repository
+- Build the release binary
+
+Test the CD workflow 
+- Create a release on github.
+- Check the actions tab to see that the binary, LICENSE and docker image are published.
+
+
+## Docker
+
+Create a docker file
+
+Build the docker image
+
+```
+docker build -t dummydb:latest .
+```
+
+Test the docker image
+
+```
+docker run --rm dummydb:latest
+```
+
+
+
