@@ -12,9 +12,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Build release binary
-        run: make
-
       - name: Upload binary
         uses: actions/upload-release-asset@v1
         env:
@@ -34,3 +31,19 @@ jobs:
           asset_name: LICENSE
           asset_path: LICENSE
           asset_content_type: text/plain
+          
+      - name: Log in to GHCR
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.WARWICK_TOKEN_LEAGUE_OF_LEGEND }}
+
+      - name: Build Docker image
+        run: docker build -t ghcr.io/${{ github.repository_owner }}/intro-to-ci-cd-${{ github.repository_owner }}:${{ github.ref_name }} .
+
+      - name: Push Docker image
+        run: docker push ghcr.io/${{ github.repository_owner }}/intro-to-ci-cd-${{ github.repository_owner }}:${{ github.ref_name }}
+
+      - name: Build
+        run: make release
