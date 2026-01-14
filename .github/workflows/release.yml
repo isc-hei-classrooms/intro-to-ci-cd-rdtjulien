@@ -12,6 +12,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Build
+        run: make release
+
       - name: Upload binary
         uses: actions/upload-release-asset@v1
         env:
@@ -44,6 +47,3 @@ jobs:
 
       - name: Push Docker image
         run: docker push ghcr.io/${{ github.repository_owner }}/intro-to-ci-cd-${{ github.repository_owner }}:${{ github.ref_name }}
-
-      - name: Build
-        run: make release
