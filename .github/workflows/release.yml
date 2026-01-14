@@ -16,7 +16,7 @@ jobs:
         run: make
 
       - name: Upload binary
-        uses: actions/upload-release-artifact@v1
+        uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.WARWICK_TOKEN_LEAGUE_OF_LEGEND }}
         with:
@@ -26,7 +26,7 @@ jobs:
           asset_content_type: application/octet-stream
 
       - name: Upload LICENSE
-        uses: actions/upload-release-artifact@v1
+        uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.WARWICK_TOKEN_LEAGUE_OF_LEGEND }}
         with:
