@@ -17,12 +17,18 @@ jobs:
 
       - name: Upload binary
         uses: actions/upload-artifact@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.WARWICK_TOKEN_LEAGUE_OF_LEGEND }}
         with:
           name: dummydb-binary
           path: build/main
+          upload_url: ${{ github.event.release.upload_url }}
 
       - name: Upload LICENSE
         uses: actions/upload-artifact@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.WARWICK_TOKEN_LEAGUE_OF_LEGEND }}
         with:
           name: LICENSE
           path: LICENSE
+          upload_url: ${{ github.event.release.upload_url }}
